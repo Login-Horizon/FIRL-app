@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ec1c1c"
+    android:gravity="center_horizontal"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="170dp"
+        android:layout_height="226dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:background="#d8b7b7"
+        android:layout_gravity="center"
+        android:layout_weight="0.47"
+        android:gravity="center|top">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="119dp"
+            android:text="Мой дядя самых честных правил,
+        Когда не в шутку занемог,
+        Он уважать себя заставил
+        И лучше выдумать не мог.
+        Его пример другим наука;
+        Но, боже мой, какая скука
+        С больным сидеть и день и ночь,
+        Не отходя ни шагу прочь!
+        Какое низкое коварство
+        Полу-живого забавлять,
+        Ему подушки поправлять,
+        Печально подносить лекарство,
+        Вздыхать и думать про себя:
+        Когда же чорт возьмет тебя!"
+            style="@style/AppTheme"
+            android:background="#5779f60b"
+            android:layout_marginTop="8dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:width="15dp"
+            android:autoText="false"  />
+          <!--  android:scrollHorizontally="false"
+          -->
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
