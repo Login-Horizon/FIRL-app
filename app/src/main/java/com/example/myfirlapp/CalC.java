@@ -10,24 +10,25 @@ import java.util.Date;
  */
 public class CalC {
     static double f = 0;
-    static int m=0;
-    public  void zap(Date st, Date ed){ // your date
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(st);
-        int year = cal.get(Calendar.YEAR);
-        year = st.getYear();
-        int month = cal.get(Calendar.MONTH);
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        CalC road = new CalC();
-        this.m = day;
+    static int m = 0;
+
+    public void zap(Date st, Date ed) {
+        Calendar calst = Calendar.getInstance();
+        Calendar caled = Calendar.getInstance();
+        calst.setTime(st);
+        caled.setTime(ed);
+        int days = (ed.getYear()-st.getYear())*360+ (calst.get(Calendar.MONTH)-calst.get(Calendar.MONTH))*30+Math.min(calst.get(Calendar.DAY_OF_MONTH),30)-Math.min(caled.get(Calendar.DAY_OF_MONTH),30);
+
+        this.m = days/30;
 
 
     }
+
     public static void main(String[] args) {
 
     }
 
-    public static double methodName(double a,  double r, double p) {
+    public static double methodName(double a, double r, double p) {
         // body
         double z = 1 + r / 365;
         f = a;
@@ -65,12 +66,14 @@ public class CalC {
         double f = a / 12;
         return f;
     }
-    public String[] list(double value){
-        String[] listes = new String[m];
-        for (int i=0;i<m;i++){
-            listes[i]=String.valueOf(value+value*.01*i);
+
+    public String[] list(double value) {
+        String[] listam = new String[m];
+        for (int i = 0; i < m; i++) {
+            listam[i] = String.valueOf(value + value * .01 * i);
         }
-        return listes;
+        listam[m-1] = String.valueOf(m);
+        return listam;
     }
 
 }

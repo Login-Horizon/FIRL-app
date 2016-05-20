@@ -33,18 +33,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         // setContentView(R.layout.activity_layout);
         setContentView(R.layout.table_layout);
-        String[] paynebt = new String[3];// my  date
-
 
         CalC road = new CalC();
-        road.zap(new Date(2016,01,25),new Date(2016,01,25));
-        String t = String.valueOf(road.methodName(990,  0.29, 990 / 12));
-
+        road.zap(new Date(2016,01,25),new Date(2017,01,25));
         String[] some =  road.list(road.methodName(990,  0.29, 990 / 12));
+
         ListView listViem = (ListView) findViewById(R.id.listViem);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, some);
-
-
         listViem.setAdapter(adapter);
         listViem.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
