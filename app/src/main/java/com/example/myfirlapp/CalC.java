@@ -2,18 +2,32 @@ package com.example.myfirlapp;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Руслан on 02.02.2016.
  */
 public class CalC {
     static double f = 0;
+    static int m=0;
+    public  void zap(Date st, Date ed){ // your date
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(st);
+        int year = cal.get(Calendar.YEAR);
+        year = st.getYear();
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        CalC road = new CalC();
+        this.m = day;
 
+
+    }
     public static void main(String[] args) {
 
     }
 
-    public static double methodName(double a, int m, double r, double p) {
+    public static double methodName(double a,  double r, double p) {
         // body
         double z = 1 + r / 365;
         f = a;
@@ -36,7 +50,7 @@ public class CalC {
 
 //.out.print(z);
 
-            methodName(a, m, r, p + f / m);
+            methodName(a, r, p + f / m);
 
 
         } else {
@@ -50,6 +64,13 @@ public class CalC {
     public static double SumGet(double a) {
         double f = a / 12;
         return f;
+    }
+    public String[] list(double value){
+        String[] listes = new String[m];
+        for (int i=0;i<m;i++){
+            listes[i]=String.valueOf(value+value*.01*i);
+        }
+        return listes;
     }
 
 }
