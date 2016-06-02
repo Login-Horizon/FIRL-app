@@ -1,7 +1,5 @@
 package com.example.myfirlapp;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,18 +10,6 @@ public class CalC {
     static double f = 0;
     static int m = 0;
 
-    public void zap(Date st, Date ed) {
-        Calendar calst = Calendar.getInstance();
-        Calendar caled = Calendar.getInstance();
-        calst.setTime(st);
-        caled.setTime(ed);
-        int days = (ed.getYear()-st.getYear())*360+ (calst.get(Calendar.MONTH)-calst.get(Calendar.MONTH))*30+Math.min(calst.get(Calendar.DAY_OF_MONTH),30)-Math.min(caled.get(Calendar.DAY_OF_MONTH),30);
-
-        this.m = days/30;
-
-
-    }
-
     public static void main(String[] args) {
 
     }
@@ -33,7 +19,6 @@ public class CalC {
         double z = 1 + r / 365;
         f = a;
 
-        System.out.printf("Nal: %s\n Amount: %s\n  Monthl: %s \n", a, f, Math.round(p));
 
         for (int i = 0; i < m; i++) {
             if (i == 0) {
@@ -67,12 +52,25 @@ public class CalC {
         return f;
     }
 
+    public void zap(Date st, Date ed) {
+        Calendar calst = Calendar.getInstance();
+        Calendar caled = Calendar.getInstance();
+        calst.setTime(st);
+        caled.setTime(ed);
+        int days = (ed.getYear() - st.getYear()) * 360 + (calst.get(Calendar.MONTH) - calst.get(Calendar.MONTH)) * 30
+                + Math.min(calst.get(Calendar.DAY_OF_MONTH), 30) - Math.min(caled.get(Calendar.DAY_OF_MONTH), 30);
+
+        this.m = days / 30;
+
+
+    }
+
     public String[] list(double value) {
         String[] listam = new String[m];
         for (int i = 0; i < m; i++) {
             listam[i] = String.valueOf(value + value * .01 * i);
         }
-        listam[m-1] = String.valueOf(m);
+        listam[m - 1] = String.valueOf(m);
         return listam;
     }
 
