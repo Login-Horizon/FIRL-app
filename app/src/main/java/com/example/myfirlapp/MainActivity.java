@@ -23,6 +23,7 @@ import java.util.Date;
 public class MainActivity extends Activity {
     static final int idB = 0;
     static final int idBg = 1;
+    static  int stat =0;
     Button bt;
     Button btg;
     int year_x = 2015;
@@ -69,7 +70,9 @@ public class MainActivity extends Activity {
         btg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 LayoutShower();
+                stat = 1;
             }
         });
     }
@@ -103,6 +106,15 @@ public class MainActivity extends Activity {
         return null;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (stat !=0){
+            finish();
+            startActivity(getIntent());
+        }
+    }
+
     private int LayoutShower() {
         setContentView(R.layout.table_layout);
         CalC road = new CalC();
@@ -117,7 +129,9 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, some);
         listViem.setAdapter(adapter);
         listViem.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
         return 2;
+
     }
 
     ;
